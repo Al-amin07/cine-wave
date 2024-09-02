@@ -18,7 +18,7 @@ const Banner = () => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 7000,
+          delay: 5000,
         
         }}
         loop={true}
@@ -57,7 +57,7 @@ const Banner = () => {
                   <span>{Number(movie?.vote_count).toFixed(0)}</span>
                 </p>
               </div>
-              <button className="text-lg rounded-md bg-white text-black hover:bg-orange-500 px-3 hover:scale-105 py-2  border-neutral-800 mt-4 flex items-center gap-2 transition-colors duration-1000 ease-linear">
+              <button className="btn flex mt-6 items-center hover:animate-color-change">
                 <FaPlayCircle className="text-3xl " />
                 Play Now
               </button>

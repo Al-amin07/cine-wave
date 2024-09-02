@@ -6,7 +6,7 @@ import MobileNav from "./components/MobileNav";
 import useMovie from "./hooks/useMovie";
 import { useDispatch } from "react-redux";
 import { useEffect } from "react";
-import { setBannerData, setImageUrl } from "./store/bannerDataSlice";
+import { setBannerData, setImageUrl, setNowPlaying } from "./store/bannerDataSlice";
 
 function App() {
   const movieApi = useMovie();
@@ -14,11 +14,20 @@ function App() {
   const bannerData = async () => {
     try {
       const { data } = await movieApi.get('/trending/all/week')
-      console.log(data.results)
+      // console.log(data.results)
       dispatch(setBannerData(data.results))
 
     } catch (error) {
       console.log(error.message)
+    }
+  }
+  const nowPlayingData = async () => {
+    try {
+      const { data } = await movieApi.get('/movie/now_playing')
+      console.log(data.results)
+      dispatch(setNowPlaying(data.results))
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -29,6 +38,7 @@ function App() {
   }
   useEffect(() => {
     bannerData();
+    nowPlayingData();
     configureData();
   }, [])
   return (

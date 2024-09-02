@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .btn {
+      @apply bg-gradient-to-r from-pink-500 to-yellow-500 text-white py-2 px-4 rounded;
+      background-size: 200% 100%;
+      background-position: left;
+      transition: background-position 0.7s ease;
+    }
+  
+    .animate-color-change:hover {
+      background-position: right;
+    }
+  }
