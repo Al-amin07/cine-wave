@@ -1,6 +1,7 @@
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import Card from "./Card";
 import { useRef } from "react";
+import Loading from "../loading/Loading";
 
 
 const Horijontal = ({trendData, heading, trending, loading}) => {
@@ -28,7 +29,7 @@ const Horijontal = ({trendData, heading, trending, loading}) => {
         ))}
      </>
         :
-        <p className="h-300 flex items-center justify-center text-3xl ">Data Loading...</p>
+        <Loading />
        }
             
         </div>
