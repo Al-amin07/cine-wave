@@ -3,7 +3,7 @@ import Card from "./Card";
 import { useRef } from "react";
 
 
-const Horijontal = ({trendData, heading, trending}) => {
+const Horijontal = ({trendData, heading, trending, loading}) => {
     const containerRef = useRef();
     const handleLeft = () => {
         console.log('Hello')
@@ -19,10 +19,17 @@ const Horijontal = ({trendData, heading, trending}) => {
         <h2 className="text-3xl font-bold mb-5">{heading}</h2>
      <div className="  relative" >
      <div ref={containerRef} className=" relative  grid  grid-flow-col overflow-hidden gap-5  ">
-        {/* <div className=" grid grid-cols-1 grid-flow-col overflow-auto  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5"> */}
-          {trendData.map((data, index) => (
-            <Card key={data.id} data={data} index={index + 1} trending={trending} />
-          ))}
+    
+       {
+     !loading ? 
+     <>
+        {trendData?.map((data, index) => (
+          <Card key={data.id} data={data} index={index + 1} trending={trending} />
+        ))}
+     </>
+        :
+        <p className="h-300 flex items-center justify-center text-3xl ">Data Loading...</p>
+       }
             
         </div>
         {/* <div className="absolute   w-full bg-transparent top-1/2 -translate-y-1/2 flex justify-between">

@@ -38,7 +38,7 @@ function App() {
   }
   useEffect(() => {
     bannerData();
-    nowPlayingData();
+    // nowPlayingData();
     configureData();
   }, [])
   return (
